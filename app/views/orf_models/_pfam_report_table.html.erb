@@ -1,0 +1,34 @@
+<% motifs = om.interpro_motifs %>
+
+<table class='table table-condensed table-striped'>
+<tr>
+  <th>Pfam ID</th>
+  <th>Pfam description</th>
+  <th>from</th>
+  <th>to</th>
+  <th>e-value</th>
+  <th>InterPro ID</th>
+  <th>Inter description</th>
+  <th>GO terms</th>
+</tr>
+<% motifs.each do |m| %>
+<tr>
+  <td><%= link_to(m.signature_acc, url_pfam(m.signature_acc)) %></td>
+  <td><%= m.signature_desc %></td>
+  <td><%= m.start %></td>
+  <td><%= m.stop %></td>
+  <td><%= m.score %></td>
+  <% if /^IP/.match(m.interpro_acc) %>
+    <td><%= link_to(m.interpro_acc, url_interpro(m.interpro_acc)) %></td> 
+  <% else %>
+    <td></td>
+  <% end %>
+  <td><%= m.interpro_desc %></td>
+  <td>  
+  <% (m.interpro_go || "").split(/\|/).each do |g| %> 
+  <%= link_to(g, url_goterm(g)) %> 
+  <% end %>
+  </td>
+</tr>
+<% end %>
+</table>

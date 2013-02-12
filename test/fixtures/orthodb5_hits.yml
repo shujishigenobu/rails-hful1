@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  orthgrp: MyString
+  besthit: MyString
+  blast_record: MyString
+  orf_model_id: MyString
+
+two:
+  name: MyString
+  orthgrp: MyString
+  besthit: MyString
+  blast_record: MyString
+  orf_model_id: MyString

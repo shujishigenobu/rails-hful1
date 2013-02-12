@@ -1,0 +1,38 @@
+<%= form_for @orf_model, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :naseq, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :naseq, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :aaseq, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :aaseq, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :transcript_model_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :transcript_model_id, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                orf_models_path, :class => 'btn' %>
+  </div>
+<% end %>

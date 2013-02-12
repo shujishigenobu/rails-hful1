@@ -1,0 +1,3 @@
+<% br = @orf_model.blast_nr_results %>
+<%= render(:partial => "table_blast_result",
+           :locals => {:ntop => 100, :blast_lines => br}) %>

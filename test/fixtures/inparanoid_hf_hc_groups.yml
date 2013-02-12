@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  group: MyString
+  score: MyString
+  species: MyString
+  confidence: MyString
+  gene: MyString
+  bootstrap: MyString
+  orf_model_id: MyString
+
+two:
+  group: MyString
+  score: MyString
+  species: MyString
+  confidence: MyString
+  gene: MyString
+  bootstrap: MyString
+  orf_model_id: MyString

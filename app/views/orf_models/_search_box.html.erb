@@ -1,0 +1,12 @@
+<!-- Search Box -->
+
+<div class="search_form">
+      <%= form_tag '/orf_models', :method => :get do  %>
+        <fieldset>
+          <div id="search_form_box">
+            <form class="form-search" action="/orf_models" method="get">
+            <input class="input-medium search-query" name="q" placeholder="Search" type="text">
+          </div>
+        </fieldset>
+      <% end %>
+</div>

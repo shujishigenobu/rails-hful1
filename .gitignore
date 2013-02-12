@@ -1,5 +1,6 @@
 *.rbc
 *.sassc
+*~
 .sass-cache
 capybara-*.html
 .rspec
@@ -8,9 +9,13 @@ capybara-*.html
 /log/*
 /tmp/*
 /db/*.sqlite3
+/db/data_source/*
+/db/load_data/*.sql
 /public/system/*
 /coverage/
 /spec/tmp/*
 **.orig
 rerun.txt
 pickle-email-*.html
+tmp.*
+Gemfile.lock

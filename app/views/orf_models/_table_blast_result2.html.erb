@@ -1,0 +1,27 @@
+<%# :ntop, :blastn %>
+
+<% cols = %w{rank subject_id pident align_len mismatch gaps query_range subject_range evalue bitscore } %>
+
+<table class="table">
+<tr>
+  <th><%=raw cols.join("</th><th>") %></th>
+</tr>
+
+<% n = 1; prev_hitid = nil %>
+<% blast_lines.each do |bl| %>
+<tr>
+  <td><%= n %></td>
+  <td><%= bl.s_seqid %></td>
+  <td><%= sprintf("%.1f", bl.pident) %>%</td>
+  <td><%= bl.alnlength %></td>
+  <td><%= bl.mismatch %></td>
+  <td><%= bl.gapopen %></td>
+  <td><%= "#{bl.q_start} => #{bl.q_end} / #{bl.q_len}" %></td>
+  <td><%= "#{bl.s_start} => #{bl.s_end} / #{bl.s_len}" %></td>
+  <td><%= bl.evalue %></td>
+  <td><%= bl.bitscore %></td>
+</tr>
+<% n += 1 unless prev_hitid == bl.s_seqid %>
+<% break if n > ntop %>
+<% end %>
+</table>

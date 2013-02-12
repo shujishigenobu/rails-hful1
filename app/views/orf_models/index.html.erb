@@ -1,0 +1,34 @@
+<%= render(:partial => "search_box") %>
+
+
+
+<%- model_class = OrfModel -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th>length (bp)</th>
+      <th>transcript_model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orf_models.each do |orf_model| %>
+      <tr>
+        <td>
+          <%= link_to 'Show', orf_model, :class => 'btn btn-mini btn-info' %>
+        </td>
+        <td><%= orf_model.name %></td>
+        <td><%= orf_model.description %></td>
+        <td><%= orf_model.naseq.size %></td>
+        <td><%= orf_model.transcript_model.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p><%= will_paginate @orf_models %></p>

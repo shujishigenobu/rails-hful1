@@ -1,0 +1,19 @@
+<% ex = om.expression_level %>
+<% libinfo = [["idx12", "soldier frontal gland 2", "FG2"], 
+["idx2", "soldier frontal gland", "FG"],
+["idx4", "soldier head -FG", "SH-"],
+["idx5", "presoldier head", "PS"],
+["idx6", "minor worker head", "MiW"],
+["idx7", "male alate head", "MA"]] %>
+
+<% libs = libinfo.map{|l| l[0]} %>
+<% exdata = libs.map{|l| ex.send(l)} %>
+
+<%= image_tag Gchart.bar(
+        :data => exdata,
+        :axis_with_labels => 'x', 
+        :axis_labels => [libinfo.map{|x| x[2]}.join('|')],
+        :theme => :pastel,
+        :title => "cpm"
+)
+ %>

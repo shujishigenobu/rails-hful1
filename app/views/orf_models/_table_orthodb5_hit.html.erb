@@ -1,0 +1,12 @@
+<% og = om.orthodb5_hit %>
+<% if og %>
+<table class="table table-boedered table-condensed">
+<tr>
+  <td><%= link_to(og.orthgrp, url_orthodb5(og.orthgrp)) %></td>
+  <td><%= og.besthit %></td>
+</tr>
+</table>
+<% else %>
+none
+<% end %>
+</p>

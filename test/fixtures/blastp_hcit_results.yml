@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  q_seqid: MyString
+  s_seqid: MyString
+  pident: MyString
+  alnlength: MyString
+  mismatch: MyString
+  g_apopen: MyString
+  q_start: MyString
+  q_end: MyString
+  s_start: MyString
+  s_end: MyString
+  evalue: MyString
+  bitscore: MyString
+  q_len: MyString
+  s_len: MyString
+
+two:
+  q_seqid: MyString
+  s_seqid: MyString
+  pident: MyString
+  alnlength: MyString
+  mismatch: MyString
+  g_apopen: MyString
+  q_start: MyString
+  q_end: MyString
+  s_start: MyString
+  s_end: MyString
+  evalue: MyString
+  bitscore: MyString
+  q_len: MyString
+  s_len: MyString

@@ -1,0 +1,33 @@
+<% ex = om.expression_level %>
+<% libinfo = [["idx12", "soldier frontal gland 2", "FG2"], 
+["idx2", "soldier frontal gland", "FG"],
+["idx4", "soldier head -FG", "SH-"],
+["idx5", "presoldier head", "PS"],
+["idx6", "minor worker head", "MiW"],
+["idx7", "male alate head", "MA"]] %>
+
+<% libs = libinfo.map{|l| l[0]} %>
+<% exdata = libs.map{|l| ex.send(l)} %>
+
+<table class='table table-bordered table-condensed'>
+
+<tr>
+<% libs.each_with_index do |lib, i| %>
+  <th><%= lib %></th>
+<% end %>
+</tr>
+
+<tr>
+<% libs.each_with_index do |lib, i| %>
+  <td><%= "#{libinfo[i][2]} (#{libinfo[i][1]})" %></td>
+<% end %>
+</tr>
+
+
+<tr>
+<% libs.each do |lib| %>
+  <td><%= sprintf("%.2f", ex.send(lib)) %></td>
+<% end %>
+</tr>
+
+</table>

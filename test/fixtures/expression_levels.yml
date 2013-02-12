@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  idx12: MyString
+  idx2: MyString
+  idx4: MyString
+  idx5: MyString
+  idx6: MyString
+  idx7: MyString
+  orf_model_id: MyString
+
+two:
+  name: MyString
+  idx12: MyString
+  idx2: MyString
+  idx4: MyString
+  idx5: MyString
+  idx6: MyString
+  idx7: MyString
+  orf_model_id: MyString

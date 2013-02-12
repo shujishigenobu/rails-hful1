@@ -1,0 +1,84 @@
+<%- model_class = OrfModel -%>
+<% om = @orf_model %>
+
+<div class="page-header">
+  <h1><%=t '.title', :default => om.name %>  <small><i>Hemerocallis fulva</i></small></h1>
+</div>
+
+<div class="section">
+<h4>ORF Prediction</h4>
+<%= render(:partial => "summary_orf_prediction", 
+           :locals => {:om => om}) %>
+<p><b>Sequence</b>: <%= link_to("CDS", :controller => "orf_models", :action => "fasta_cds") %> | <%= link_to("Protein", :controller => "orf_models", :action => "fasta_pep") %> (FASTA format)</p>
+</div>
+
+<div class="section">
+<h4>Expression Level</h4>
+under construction
+</div>
+
+<div class="section">
+<h4>BLAST NR</h4>
+<% br = om.blast_nr_results %>
+<%= render(:partial => "table_blast_result",
+           :locals => {:ntop => 3, :blast_lines => br}) %>
+<p>
+<%= link_to("View BLASTP reults more ...", :controller => "orf_models", :action => "blast_nr") %>
+</p>
+</div>
+
+<div class="section">
+<h4>Pfam Motifs</h4>
+<%= render(:partial => "pfam_report_table",
+           :locals => {:om => om}) %>
+</div class="section">
+
+<div class="section">
+<h4>BLASTP: Hcit Proteins</h4>
+<% br = om.blastp_hcit_results %>
+<%= render(:partial => "table_blast_result2",
+           :locals => {:ntop => 3, :blast_lines => br}) %>
+</div>
+
+<div class="section">
+<h4>Ortholog: Hful and Hcit (InParanoid)</h4>
+<% og = om.inparanoid_hf_hc_group %>
+<% if og %>
+<% og_hfs = InparanoidHfHcGroup.where(:grp => og.grp, :species => "Hf") %>
+<% og_hcs = InparanoidHfHcGroup.where(:grp => og.grp, :species => "Hc") %>
+
+<table class="table table-bordered table-condensed">
+<tr>
+  <th>Ortholog Group</th>
+  <th>Hful <span class="badge"><%= og_hfs.size %></th>
+  <th>Hcit <span class="badge"><%= og_hcs.size %></th>
+  <th>score</th>
+</tr>
+<tr>
+  <th><%= og.grp %></th>
+  <td><%=raw og_hfs.map{|x| x.gene}.join("<br />") %></td>
+  <td><%=raw og_hcs.map{|x| x.gene}.join("<br />") %></td>
+  <td><%= og.score %></td>
+</tr>
+</table>
+<% else %>
+No orthologs.
+<% end %>
+</div>
+
+<%= link_to("view more ...", "#", :remote => true, "id" => "button1", "class" => "btn") %>
+<p id="text1" style="display: none">under construction</p>
+
+<script type="text/javascript">
+$(function(){
+$("#button1").click(function(){
+$("#text1").toggle('fast');
+});
+});
+</script>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              orf_models_path, :class => 'btn'  %>
+</div>
+

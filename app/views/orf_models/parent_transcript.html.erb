@@ -1,0 +1,10 @@
+<h1><%= @transcript.name %></h1>
+
+length: <%= @transcript.seq.size %>
+
+<% fasta = ">#{@transcript.description}\n" %>
+<% fasta << @transcript.seq.gsub(/.{,60}/, "\\0\n") %>
+<p>
+<pre><%= fasta %>
+</pre>
+</p>

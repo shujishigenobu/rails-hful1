@@ -1,0 +1,14 @@
+<table class='table table-bordered table-condensed'>
+<tr>
+  <th>name</th>
+  <th>length</th>
+  <th>transcript</th>
+  <th>model type</th>
+</tr>
+<tr>
+  <td><%= om.name %> </td>
+  <td><%= om.naseq.length %> bp (<%= om.aaseq.length %> aa)</td>
+  <td><%= link_to(om.transcript_model.name, :controller => "orf_models", :action => "parent_transcript") %> : <%= om.location_on_parent_transcript %></td>
+  <td><%= om.model_type %></td>
+</tr>
+</table>
